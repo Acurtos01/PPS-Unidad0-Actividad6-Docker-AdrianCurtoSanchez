@@ -16,13 +16,41 @@ docker exec -it web bash
 
 Estando en la terminal del contenedor creamos el fichero index.html con el siguiente comando:
 ```
-print "<h1>Hola soy Adrián Curto</h1>" > index.html
+echo "<h1>Hola soy Adrián Curto</h1>" > index.html
 ```
+![Echo index.html](../images/actividad-2/echo-index.html.png)
+
+Al acceder al navegador a en la url http://localhost:8000 veremos el contenido del fichero `index.html`.
+![Index html](../images/actividad-2/indexhtml.png)
 
 Y tambien deberemos crear el fichero index.php con el siguiente comando:
 ```
-touch "<?php echo phpinfo(); ?>" > index.php
+echo "<?php echo phpinfo(); ?>" > index.php
 ```
+![Echo index.php](../images/actividad-2/echo-index.php.png)
 
+Al recargar la url http://localhost:8000 veremos que está siviendo el fichero `index.php`.
+![PHP info](../images/actividad-2/phpinfo.png)
+
+Con el comando `docker ps -s` podremos conocer el tamaño del contenedor.
+![Docker ps -s](../images/actividad-2/docker-ps-s.png)
+
+---
 
 ## Servidor de base de datos.
+
+Cremos un contendor con base de datos MariaDB con el siguiente comando:
+```
+$ docker run -p 3336:3336 --detach --name bbdd --env MARIADB_USER=invitado --env MARIADB_PASSWORD=invitado --env MARIADB_DATABASE=prueba --env MARIADB_ROOT_PASSWORD=root  mariadb:latest
+```
+
+Empleando un clinete en nuestramáquina anfitrión conectamos a la base de datos empleando el usuario `invitado`.
+
+
+También probaremos el acceso con el usuario `root`.
+
+
+Listamos la bases de datos `prueba` creada al inicializar el contendor.
+
+
+Y observamos que no podemos borrar el contendor `bbdd` mientras este esté en ejecución.
