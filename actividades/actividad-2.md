@@ -41,16 +41,27 @@ Con el comando `docker ps -s` podremos conocer el tamaño del contenedor.
 
 Cremos un contendor con base de datos MariaDB con el siguiente comando:
 ```
-$ docker run -p 3336:3336 --detach --name bbdd --env MARIADB_USER=invitado --env MARIADB_PASSWORD=invitado --env MARIADB_DATABASE=prueba --env MARIADB_ROOT_PASSWORD=root  mariadb:latest
+docker run -p 3336:3336 --detach --name bbdd --env MARIADB_USER=invitado --env MARIADB_PASSWORD=invitado --env MARIADB_DATABASE=prueba --env MARIADB_ROOT_PASSWORD=root  mariadb:latest
 ```
+![Docker run bbdd](../images/actividad-2/docker-run-bbdd.png)
 
 Empleando un clinete en nuestramáquina anfitrión conectamos a la base de datos empleando el usuario `invitado`.
+```
+mariadb --host=172.17.0.2 --user=invitado --password=invitado
+```
 
-
-También probaremos el acceso con el usuario `root`.
+Podemos encontrar la IP del contenedor empleando el comando `docker inspect bbdd`.
 
 
 Listamos la bases de datos `prueba` creada al inicializar el contendor.
+```
+show databases
+```
+![Data base connection](../images/actividad-2/db-connection.png)
 
 
 Y observamos que no podemos borrar el contendor `bbdd` mientras este esté en ejecución.
+```
+docker rm bbdd
+```
+![Docker remove](../images/actividad-2/docker-rm.png)
