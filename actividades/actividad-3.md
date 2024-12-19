@@ -46,10 +46,6 @@ docker run -d --name c3 -v volumen-web:/var/www/html -p 8081:80 php:7.4-apache
 ```
 ![Docker run c3](../images/actividad-3/docker-run-c3.png)
 
-Al visualizar lo que devuelve el servicio a traves del navegdor nos encontramos con lo siguiente.
+Al visualizar lo que devuelve el servicio a traves del navegdor nos encontramos con que mantiene el fichero `index.html`.
+
 ![Localhost 8081](../images/actividad-3/localhost-8081.png)
-
-Si inspeccionamos el directorio nos encontramos con que no existe el fichero `index.html`.
-![Docker exect c3](../images/actividad-3/docker-exec-c3.png)
-
-## Bind mount para compartir datos 
