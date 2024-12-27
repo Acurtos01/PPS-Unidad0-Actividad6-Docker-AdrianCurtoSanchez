@@ -7,6 +7,7 @@
 3. [Actividad-3](/actividades/actividad-3.md)
 4. [Actividad-4](/actividades/actividad-4.md)
 5. [Actividad-5](/actividades/actividad-5.md)
+6. [Actividad-6](/actividades/actividad-6.md)
 
 ---
 
